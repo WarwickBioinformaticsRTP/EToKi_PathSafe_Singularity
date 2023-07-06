@@ -12,7 +12,7 @@ sudo singularity build EToKi_singularity.sif EToKi_PathSafe_Singularity/EToKi_si
 ```
  
 ## PART 3: Running the pipeline via the container
-First set path to the singularity container we just built
+### First set path to the singularity container we just built
 ```
 container=/path/to/EToKi_singularity.sif
 ```
@@ -44,8 +44,8 @@ The following files will be outputted:
 - EToKi_spades.result.fasta - assembly in fasta format
 - EToKi_spades.result.fastq - assembly in fastq format
 
-
-Pass assembly to 
+---
+Generate assembly report using quast. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
 ```
