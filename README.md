@@ -1,5 +1,10 @@
 # EToKi_PathSafe_Singularity
 
+## Build the container
+singularity build EToKi_container.sif 
+
+
+
 ## STEP 1: Set container path
 container=
 
@@ -10,5 +15,11 @@ singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
 
 
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
+
+
+singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
+
+
+
 
 
