@@ -1,7 +1,9 @@
 # EToKi_PathSafe_Singularity
 
 ## Build the container
-singularity build EToKi_container.sif 
+,,,
+sudo singularity build EToKi_singularity.sif EToKi_singularity.def
+,,,
 
 
 
