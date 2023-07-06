@@ -12,18 +12,19 @@ sudo singularity build EToKi_singularity.sif EToKi_PathSafe_Singularity/EToKi_si
 ```
  
 ## PART 3: Running the pipeline via the container
-### First set path to the singularity container we just built
+#### First set path to the singularity container we just built
 ```
 container=/path/to/EToKi_singularity.sif
 ```
 ---
-Next, create symbolic links to raw illumina read files (paired reads are expected!). Note: the pipeline expects the read files to be called "raw_forward.fastq.gz" and "raw_reverse.fastq.gz"
+#### Next, create symbolic links to raw illumina read files (paired reads are expected!). 
+Note: the pipeline expects the read files to be called "raw_forward.fastq.gz" and "raw_reverse.fastq.gz"
 ```
 ln -s /path/to/raw/forward/read raw_forward.fastq.gz
 ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
 ```
 ---
-Run EToKi "prepare" to perform read filtering. 
+#### Run EToKi "prepare" to perform read filtering. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
 ```
@@ -36,7 +37,7 @@ The following files will be generated:
 If any singletons are identified these will be written to: 
 - EToKi_prepare_L1_SE.fastq.gz
 ---
-Run EToKi "assemble" to build assembly via SPAdes and perform polishing.
+#### Run EToKi "assemble" to build assembly via SPAdes and perform polishing.
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
 ```
@@ -45,7 +46,7 @@ The following files will be outputted:
 - EToKi_spades.result.fastq - assembly in fastq format
 
 ---
-Generate assembly report using quast. 
+#### Generate assembly report using quast. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
 ```
