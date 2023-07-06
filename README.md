@@ -23,29 +23,18 @@ ln -s /path/to/raw/forward/read raw_forward.fastq.gz
 ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
 ```
 
-
-
-
-
-
-
-
-
-## STEP 1: Set container path
-container=
-
-## STEP 2: Prepare input files
-The following command runs the EToKi 'prepare' script, which conducts pre-filtering of raw read files
-
+Run EToKi "prepare" to perform read filtering. The following files will be generated: EToKi_prepare_L1_R1.fastq.gz, and EToKi_prepare_L1_R2.fastq.gz. If any singletons are identified these will be written to: EToKi_prepare_L1_SE.fastq.gz
+```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
+```
 
-
+Run 
+```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
-
-
+```
+```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
-
-
+```
 
 
 
