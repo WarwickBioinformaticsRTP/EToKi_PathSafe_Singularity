@@ -23,15 +23,27 @@ ln -s /path/to/raw/forward/read raw_forward.fastq.gz
 ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
 ```
  
-Run EToKi "prepare" to perform read filtering. The following files will be generated: EToKi_prepare_L1_R1.fastq.gz, and EToKi_prepare_L1_R2.fastq.gz. If any singletons are identified these will be written to: EToKi_prepare_L1_SE.fastq.gz
+Run EToKi "prepare" to perform read filtering. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
 ```
+The following files will be generated: 
+- EToKi_prepare_L1_R1.fastq.gz - filtered forward reads
+- EToKi_prepare_L1_R2.fastq.gz - filtered reverse reads
+- PE.refstats - paired end stats
+- SE.refstats - single end stats
 
-Run 
+If any singletons are identified these will be written to: 
+- EToKi_prepare_L1_SE.fastq.gz
+
+Run EToKi "assemble" to build assembly via SPAdes and perform polishing.
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
 ```
+The following files will be outputted:
+- EToKi_spades.result.fasta
+- EToKi_spades.result.fastq
+
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
 ```
