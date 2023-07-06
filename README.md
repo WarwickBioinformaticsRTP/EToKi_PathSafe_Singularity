@@ -12,10 +12,17 @@ sudo singularity build EToKi_singularity.sif EToKi_PathSafe_Singularity/EToKi_si
 ```
 
 ## PART 3: Running the pipeline via the container
-1. First set path to the singularity container we just built
+First set path to the singularity container we just built
 ```
 container=/path/to/EToKi_singularity.sif
 ```
+
+Next, create symbolic links to raw illumina read files (paired reads are expected!). Note: the pipeline expects the read files to be called "raw_forward.fastq.gz" and "raw_reverse.fastq.gz"
+```
+ln -s /path/to/raw/forward/read raw_forward.fastq.gz
+ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
+```
+
 
 
 
