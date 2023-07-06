@@ -4,7 +4,7 @@
 ```
 git clone https://github.com/WarwickBioinformaticsRTP/EToKi_PathSafe_Singularity
 ```
- 
+
 ## PART 2: Build the container
 A singularity container containing EToKi, SPAdes, and QUAST can be built using the following command. Note, this will require sudo privileges. 
 ```
@@ -22,7 +22,8 @@ Next, create symbolic links to raw illumina read files (paired reads are expecte
 ln -s /path/to/raw/forward/read raw_forward.fastq.gz
 ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
 ```
-//
+
+
 Run EToKi "prepare" to perform read filtering. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
@@ -36,6 +37,7 @@ The following files will be generated:
 If any singletons are identified these will be written to: 
 - EToKi_prepare_L1_SE.fastq.gz
 
+
 Run EToKi "assemble" to build assembly via SPAdes and perform polishing.
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
@@ -43,6 +45,7 @@ singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh
 The following files will be outputted:
 - EToKi_spades.result.fasta - assembly in fasta format
 - EToKi_spades.result.fastq - assembly in fastq format
+
 
 Pass assembly to 
 ```
