@@ -47,9 +47,7 @@ The following files will be outputted:
 
 ---
 #### Generate assembly report using quast. 
+Will output a directory called "quast_results" - which contains all the files produced by a standard quast run. Includes a report in html format "report.html".
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
 ```
-
-
-
