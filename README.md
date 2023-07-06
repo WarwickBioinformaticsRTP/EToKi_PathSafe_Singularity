@@ -22,8 +22,7 @@ Next, create symbolic links to raw illumina read files (paired reads are expecte
 ln -s /path/to/raw/forward/read raw_forward.fastq.gz
 ln -s /path/to/raw/reverse/read raw_reverse.fastq.gz
 ```
-
- 
+//
 Run EToKi "prepare" to perform read filtering. 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_prepare.sh
@@ -42,9 +41,10 @@ Run EToKi "assemble" to build assembly via SPAdes and perform polishing.
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/EToKi_assemble.sh 
 ```
 The following files will be outputted:
-- EToKi_spades.result.fasta
-- EToKi_spades.result.fastq
+- EToKi_spades.result.fasta - assembly in fasta format
+- EToKi_spades.result.fastq - assembly in fastq format
 
+Pass assembly to 
 ```
 singularity exec $container /bin/sh EToKi_PathSafe_Singularity/run_quast.sh
 ```
