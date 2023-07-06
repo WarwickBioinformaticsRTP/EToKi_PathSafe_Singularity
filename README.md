@@ -1,9 +1,26 @@
 # EToKi_PathSafe_Singularity
 
-## Build the container
+## PART 1: Clone the repository 
 ```
-sudo singularity build EToKi_singularity.sif EToKi_singularity.def
+git clone https://github.com/WarwickBioinformaticsRTP/EToKi_PathSafe_Singularity
 ```
+
+## PART 2: Build the container
+A singularity container containing EToKi, SPAdes, and QUAST can be built using the following command. Note, this will require sudo privileges. 
+```
+sudo singularity build EToKi_singularity.sif EToKi_PathSafe_Singularity/EToKi_singularity.def
+```
+
+## PART 3: Running the pipeline via the container
+1. First set path to the singularity container we just built
+```
+container=/path/to/EToKi_singularity.sif
+```
+
+
+
+
+
 
 
 
